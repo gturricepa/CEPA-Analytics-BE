@@ -18,12 +18,7 @@ export class UsersController {
 
   @Post()
   async create(@Body() createUserDto: CreateUserDto): Promise<User> {
-    return this.usersService.create(createUserDto); // Chama o método create do UserService
-  }
-
-  @Get('/test')
-  test() {
-    return 'itsAlive';
+    return this.usersService.create(createUserDto);
   }
 
   @Get('/all')
