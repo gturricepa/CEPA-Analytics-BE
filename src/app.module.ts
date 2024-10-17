@@ -8,6 +8,8 @@ import { AuthModule } from './auth/auth.module';
 import * as dotenv from 'dotenv';
 import { APP_GUARD } from '@nestjs/core';
 import { JwtAuthGuard } from './auth/guards/jwt-auth.guard';
+import { FineModule } from './mondelez/fines/fines.module';
+import { Fine } from './mondelez/fines/entities/fines.entity';
 
 dotenv.config();
 @Module({
@@ -19,7 +21,7 @@ dotenv.config();
       username: process.env.DB_USERNAME,
       password: process.env.DB_PASSWORD,
       database: process.env.DB_NAME,
-      entities: [User],
+      entities: [User, Fine],
       synchronize: false,
       ssl: {
         rejectUnauthorized: process.env.DB_SSL_REJECT_UNAUTHORIZED === 'true',
@@ -27,6 +29,7 @@ dotenv.config();
     }),
     UsersModule,
     AuthModule,
+    FineModule,
   ],
   controllers: [AppController],
   providers: [
