@@ -38,6 +38,6 @@ export class AuthService {
         };
       }
     }
-    throw new Error('Email address or password is incorrect.');
+    throw new Error('Password is incorrect.');
   }
 }

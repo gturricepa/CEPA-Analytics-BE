@@ -23,6 +23,9 @@ export class User {
   @Column({ type: 'int' })
   corporation_id: number;
 
+  @Column({ type: 'varchar', length: 25 })
+  corporation_name: number;
+
   @CreateDateColumn({ type: 'timestamp', default: () => 'CURRENT_TIMESTAMP' })
   created_at: Date;
 
